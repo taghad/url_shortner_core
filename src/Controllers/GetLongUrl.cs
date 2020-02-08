@@ -20,7 +20,7 @@ namespace src.Controllers
         [HttpPost]
         public ActionResult Post([FromBody]Url url)
         {
-            if(!ValidateUrl(url.LongUrl)) {
+            if(!ValidateUrl(url.longUrl)) {
                 return BadRequest();
             }
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -28,12 +28,12 @@ namespace src.Controllers
 
             while(true) 
             {
-                url.ShortUrl = "";
+                url.shortUrl = "";
                 for (int i = 0; i < 8; i++)
                 {
-                    url.ShortUrl += chars[random.Next(chars.Length)];
+                    url.shortUrl += chars[random.Next(chars.Length)];
                 }
-                if((_context.Find(url.GetType(),url.ShortUrl) == null)) 
+                if((_context.Find(url.GetType(),url.shortUrl) == null)) 
                 {
                     break;
                 }

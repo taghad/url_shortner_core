@@ -33,7 +33,7 @@ namespace src.Controllers
                 return NotFound();
             }
             var u = (_context.urls.Find(short_url));
-            return Redirect(u.LongUrl);
+            return Redirect(u.longUrl);
         }
     }
 }
