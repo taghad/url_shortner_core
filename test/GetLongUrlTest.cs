@@ -100,8 +100,22 @@ namespace url_shortner_core.Test
             .Then()
                 .TestStatus("Status code Test", s => s == 400)
                 .AssertAll();              
+        } 
+        [Fact]
+        public void TestSupportUniCode() {
+            var body = new {
+                LongUrl = "http://google.com/سلام سلام تربچه"
+            };    
+            new RestAssured()
+             .Given()
+                .Name("Utf8 support Checker")
+                .Header("Content-Type", "application/json")
+                .Body(body)
+            .When()
+                .Post("http://localhost:5000/get_long_url")
+            .Then()
+                .TestStatus("Utf8 support test", s => s == 200)
+                .AssertAll();                
         }
-
-        
     }
 }
