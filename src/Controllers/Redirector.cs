@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using url_shortner.Models;
+using src.Models;
 using System.Text.RegularExpressions;
 
 namespace src.Controllers

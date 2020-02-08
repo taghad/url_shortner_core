@@ -1,4 +1,4 @@
- using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -6,10 +6,8 @@ using src.Models;
 using System.Net;
 using System;
 
-
 namespace src.Controllers
 {
-
     [Route("get_long_url")]
     [ApiController]
     public class ValuesController : Controller 
@@ -40,7 +38,6 @@ namespace src.Controllers
                     break;
                 }
             }
-
             _context.urls.Add(url);
             _context.SaveChanges();
             return Ok(url);
