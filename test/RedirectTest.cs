@@ -9,7 +9,7 @@ namespace url_shortner_core.Test
     {
 
         [Fact]
-        public void TestRedirection()
+        public void TestFoundOrNot()
         {
             
             new RestAssured()
@@ -22,6 +22,18 @@ namespace url_shortner_core.Test
                 .Get("http://localhost:5000/redirect/ZkPRHbDL")
                 .Then()
                 .TestStatus("redirect checker", r => r == 404)
+                .AssertAll();
+
+                new RestAssured()
+              .Given()
+                .Name("Found")
+                .Header("content-type", "application/json")
+                .Header("Accept-Encoding", "gzip, deflate, br")
+              .When()
+                
+                .Get("http://localhost:5000/redirect/EwmsBzbP")
+                .Then()
+                .TestStatus("Found checker", r => r == 200)
                 .AssertAll();
         }
 
@@ -38,16 +50,17 @@ namespace url_shortner_core.Test
                 .TestStatus("Not Alphabetical", r => r == 400)
                 .AssertAll();
 
-            // new RestAssured()
-            //   .Given()
-            //     .Name("Is Alphabetical")
-            //     .Header("content-type", "application/json")
-            //   .When()
-            //     .Get("http://localhost:5000/redirect/EwmsBzbP")
-            //     .Then()
-            //     .TestStatus("Is Alphabetical", r => r == 302)
-            //     .AssertAll();
+            new RestAssured()
+              .Given()
+                .Name("Is Alphabetical")
+                .Header("content-type", "application/json")
+              .When()
+                .Get("http://localhost:5000/redirect/EwmsBzbP")
+                .Then()
+                .TestStatus("Is Alphabetical", r => r == 200)
+                .AssertAll();
         }
+        
         [Fact]
         public void TestJust8Char()
         {
