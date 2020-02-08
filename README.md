@@ -34,7 +34,7 @@ dotnet test
 ## Endpoints
 For createing short URL:
 
-[Post] http://localhost:5000/get_long_url 
+[Post] http://localhost:5000/urls 
 ```json
 {
 	"longUrl" : "http://www.google.com"

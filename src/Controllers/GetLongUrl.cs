@@ -8,7 +8,7 @@ using System;
 
 namespace src.Controllers
 {
-    [Route("get_long_url")]
+    [Route("urls")]
     [ApiController]
     public class ValuesController : Controller 
     {
@@ -39,7 +39,7 @@ namespace src.Controllers
                     break;
                 }
             }
-            
+
             _context.urls.Add(url);
             _context.SaveChanges();
             return Ok(url);
