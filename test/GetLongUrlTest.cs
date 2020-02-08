@@ -117,5 +117,18 @@ namespace url_shortner_core.Test
                 .TestStatus("Utf8 support test", s => s == 200)
                 .AssertAll();                
         }
+        [Fact]
+        public void TestEmptyBody() {  
+            new RestAssured()
+             .Given()
+                .Name("Utf8 support Checker")
+                .Header("Content-Type", "application/json")
+                .Body("{}")
+            .When()
+                .Post("http://localhost:5000/get_long_url")
+            .Then()
+                .TestStatus("Empty body", s => s == 400)
+                .AssertAll();                
+        }
     }
 }
