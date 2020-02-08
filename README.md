@@ -2,6 +2,8 @@
 Shorten, create and share trusted, powerful links for your business.
 
 ## Build
+### Download and Install
+[dotnet core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
 ### Migration
 ```
@@ -31,6 +33,7 @@ dotnet test
 ```
 ## Endpoints
 For createing short URL:
+
 [Post] http://localhost:5000/get_long_url 
 ```json
 {
@@ -38,6 +41,7 @@ For createing short URL:
 }
 ```
 For redirect to your long URL:
+
 [Get] http://localhost:5000/redirector/+"add_your_short_url_here" 
 
 ### Coding style I use in this project is:
