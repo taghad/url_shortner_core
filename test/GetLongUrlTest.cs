@@ -21,8 +21,8 @@ namespace url_shortner_core
                 .Post("http://localhost:5000/get_long_url")
             .Then()
                 .TestBody("Length Test", u => ((string)u.shortUrl).Length == 8)
-                .Assert("Length Test");
-                
+                .TestStatus("Status code Test", s => s == 200)
+                .AssertAll();                
         }
     }
 }
