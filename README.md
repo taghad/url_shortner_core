@@ -25,7 +25,7 @@ dotnet test
 
 ### Coding style I use in this project is:
 
-[a link](https://github.com/alibaba-academy/coding-conventions)
+[alibaba-academy coding conventions](https://github.com/alibaba-academy/coding-conventions)
 
 ## Authors
 
