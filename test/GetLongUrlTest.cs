@@ -7,10 +7,12 @@ namespace url_shortner_core.Test
 {
     public class GetLongUrlTest
     {
+
         [Fact]
         public void TestShortUrlLength()
         {
-         var body = new {
+            var body = new 
+            {
                 LongUrl = "http://google.com"
             };    
             new RestAssured()
@@ -27,8 +29,10 @@ namespace url_shortner_core.Test
         }
 
         [Fact]
-        public void TestOnlyAlphabetsUsedInShort() {
-            var body = new {
+        public void TestOnlyAlphabetsUsedInShort() 
+        {
+            var body = new 
+            {
                 LongUrl = "http://google.com"
             };    
             new RestAssured()
@@ -45,9 +49,11 @@ namespace url_shortner_core.Test
         }
 
         [Fact]
-        public void TestValidating() {
+        public void TestValidating() 
+        {
             //good request
-            var goodBody = new {
+            var goodBody = new 
+            {
                 LongUrl = "http://google.com"
             };
             new RestAssured()
@@ -61,7 +67,8 @@ namespace url_shortner_core.Test
                 .TestStatus("Status code Test", s => s == 200)
                 .AssertAll();  
             //bad requests
-            var badBody1 = new {
+            var badBody1 = new 
+            {
                 LongUrl = "google"
             };    
             new RestAssured()
@@ -87,7 +94,8 @@ namespace url_shortner_core.Test
             .Then()
                 .TestStatus("Status code Test", s => s == 400)
                 .AssertAll();  
-            var badBody3 = new {
+            var badBody3 = new 
+            {
                 LongUrl = "سلام سلام"
             };
             new RestAssured()
@@ -102,8 +110,10 @@ namespace url_shortner_core.Test
                 .AssertAll();              
         } 
         [Fact]
-        public void TestSupportUniCode() {
-            var body = new {
+        public void TestSupportUniCode() 
+        {
+            var body = new 
+            {
                 LongUrl = "http://google.com/سلام سلام تربچه"
             };    
             new RestAssured()
@@ -118,7 +128,8 @@ namespace url_shortner_core.Test
                 .AssertAll();                
         }
         [Fact]
-        public void TestEmptyBody() {  
+        public void TestEmptyBody() 
+        {  
             new RestAssured()
              .Given()
                 .Name("Utf8 support Checker")

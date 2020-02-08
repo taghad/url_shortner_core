@@ -20,7 +20,8 @@ namespace src.Controllers
         [HttpPost]
         public ActionResult Post([FromBody]Url url)
         {
-            if(!ValidateUrl(url.longUrl)) {
+            if(!ValidateUrl(url.longUrl)) 
+            {
                 return BadRequest();
             }
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -38,6 +39,7 @@ namespace src.Controllers
                     break;
                 }
             }
+            
             _context.urls.Add(url);
             _context.SaveChanges();
             return Ok(url);
