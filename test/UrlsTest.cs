@@ -21,7 +21,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(body)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestBody("Length Test", u => ((string)u.shortUrl).Length == 8)
                 .TestStatus("Status code Test", s => s == 200)
@@ -41,7 +41,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(body)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestBody("Alphabet Test", u => Regex.IsMatch((string)u.shortUrl, @"^[a-zA-Z]+$"))
                 .TestStatus("Status code Test", s => s == 200)
@@ -62,7 +62,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(goodBody)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestStatus("Status code Test", s => s == 200)
                 .AssertAll();  
@@ -77,7 +77,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(badBody1)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestStatus("Status code Test", s => s == 400)
                 .AssertAll();      
@@ -90,7 +90,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(badBody2)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestStatus("Status code Test", s => s == 400)
                 .AssertAll();  
@@ -104,7 +104,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(badBody3)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestStatus("Status code Test", s => s == 400)
                 .AssertAll();              
@@ -122,7 +122,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body(body)
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestStatus("Utf8 support test", s => s == 200)
                 .AssertAll();                
@@ -136,7 +136,7 @@ namespace url_shortner_core.Test
                 .Header("Content-Type", "application/json")
                 .Body("{}")
             .When()
-                .Post("http://localhost:5000/get_long_url")
+                .Post("http://localhost:5000/urls")
             .Then()
                 .TestStatus("Empty body", s => s == 400)
                 .AssertAll();                
