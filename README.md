@@ -10,12 +10,18 @@ dotnet tool install --global dotnet-ef
 dotnet ef migrations add UrlShortener.AppDbContext
 dotnet ef database update
 ```
+### Connection string
+You can find this at: src/appsetting.json
+```
+"Url_shortner": "Host=localhost;Database=url_shortner;Username=postgres;Password=postgres"
+```
 ### Run
 ```
 dotnet run
 or
-dotnet watch run #dotnet watch is a development time tool that runs a dotnet command when source files change.
+dotnet watch run 
 ```
+dotnet watch is a development time tool that runs a dotnet command when source files change.
 
 ## Running the tests
 ```
@@ -29,4 +35,4 @@ dotnet test
 
 ## Authors
 
-* **MohamadHasan Taghadosi** - *Initial work* - [taghad](https://github.com/taghad)
+* **MohamadHasan Taghadosi** - [taghad](https://github.com/taghad)
