@@ -21,6 +21,7 @@ dotnet run
 or
 dotnet watch run 
 ```
+Now listening on: http://localhost:5000 , https://localhost:5001
 dotnet watch is a development time tool that runs a dotnet command when source files change.
 
 ## Running the tests
@@ -28,6 +29,16 @@ dotnet watch is a development time tool that runs a dotnet command when source f
 cd test
 dotnet test
 ```
+## Endpoints
+For createing short URL:
+[Post] http://localhost:5000/get_long_url 
+```json
+{
+	"longUrl" : "http://www.google.com"
+}
+```
+For redirect to your long URL:
+[Get] http://localhost:5000/redirector/+"add_your_short_url_here" 
 
 ### Coding style I use in this project is:
 
