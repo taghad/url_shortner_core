@@ -18,9 +18,11 @@ You can find this at: src/appsetting.json
 "Url_shortner": "Host=localhost;Database=url_shortner;Username=postgres;Password=postgres"
 ```
 ### Run
-```
+```bash
 dotnet run
+```
 or
+```bash
 dotnet watch run 
 ```
 Now listening on: http://localhost:5000 , https://localhost:5001
